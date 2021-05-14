@@ -1,6 +1,7 @@
 package gal.usc.grei.cn.compras.modelo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,15 +15,21 @@ import java.util.Objects;
 public class Compra {
 
     @Id
+    @Schema(example = "60995683cd37c7687b72abf4")
     private String id;
+    @Schema(required = true, example = "2010-03-01")
     private String fecha;
     @NotEmpty(message = "El símbolo no puede ser vacío")
+    @Schema(required = true, example = "IND")
     private String simbolo;
     @NotNull(message = "El volumen no puede ser vacío")
+    @Schema(required = true, example = "100")
     private Long volumen;
     @NotNull(message = "El precio por unidad no puede ser vacío")
+    @Schema(required = true, example = "2.004")
     private Float unidad;
     @NotNull(message = "El precio total no puede ser vacío")
+    @Schema(required = true, example = "220")
     private Float total;
 
     public Compra() {
