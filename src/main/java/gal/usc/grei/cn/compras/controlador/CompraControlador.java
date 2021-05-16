@@ -49,7 +49,11 @@ public class CompraControlador {
     @ApiResponses({
             @ApiResponse(
                     responseCode = "200",
-                    description = "Se obtiene el objeto compra satisfactoriamente"
+                    description = "Se obtiene el objeto compra satisfactoriamente",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = Compra.class)
+                    )
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -93,6 +97,11 @@ public class CompraControlador {
                             mediaType = "application/json",
                             schema = @Schema(implementation = Compra.class)
                     )
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "El objeto compra a introducir es incorrecto",
+                    content = @Content
             )
     })
     ResponseEntity<Object> create(@Valid @RequestBody
